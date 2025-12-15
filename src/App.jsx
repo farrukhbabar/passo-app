@@ -1,14 +1,10 @@
 import React from "react";
+import { RouterProvider } from "react-router-dom";
+import AppRouter from "./router/AppRouter";
 
 
 const App = () => {
-  return (
-    <div >
-      <h1 className="bg-yellow-600 text-red-500">
-        Tailwind Working 🚀
-      </h1>
-    </div>
-  );
+  return <RouterProvider router={AppRouter}/> ;
 };
 
 export default App;
