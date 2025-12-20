@@ -66,9 +66,9 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-[#9FCB09] px-4 pb-4">
           <ul className="flex flex-col space-y-4 font-medium text-lg">
-            <li onClick={toggleMenu}>Home</li>
-            <li onClick={toggleMenu}>How it works</li>
-            <li onClick={toggleMenu}>Contact us</li>
+            <li onClick={toggleMenu}> <NavLink to="/">Home</NavLink> </li>
+            <li onClick={toggleMenu}><NavLink to="/about">How it works</NavLink></li>
+            <li onClick={toggleMenu}><NavLink to="/contact">Contact us</NavLink></li>
             <li>
               <Button
                 text="Download App"

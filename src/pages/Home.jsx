@@ -1,10 +1,16 @@
 import React from "react";
+import "./Home.css";
 import landingimg from "../assets/landingimg.png";
 import Button from "../components/button";
-import sectionimg1 from "../assets/sectionimg1.png"
-import sectionimg2 from "../assets/sectionimg2.png"
-import sectionvector from "../assets/sectionvector.png"
-import "./Home.css"
+import sectionimg1 from "../assets/sectionimg1.png";
+import sectionimg2 from "../assets/sectionimg2.png";
+import sectionvector from "../assets/sectionvector.png";
+import FeatureBanner from "../components/FeatureBanner";
+import Card from "../components/Card";
+import cardLogo1 from "../assets/cardLogo1.png"
+import cardLogo2 from "../assets/cardLogo2.png"
+import cardLogo3 from "../assets/cardLogo3.png"
+
 
 const Home = () => {
   return (
@@ -34,26 +40,16 @@ const Home = () => {
             track your driving progress—all from one <br /> powerful platform.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start mt-4">
+          <div className="flex  gap-4 sm:gap-6 justify-center lg:justify-start mt-4">
             <Button
               text={"Book Your First Lesson"}
               style={{
                 background: "#9FCB09",
-                width: "252px",
-                height: "50px",
-                borderRadius: "50px",
-                fontWeight: 700,
-                fontSize: "16px",
               }}
             />
             <Button
               text={"Become an Instructor"}
               style={{
-                width: "252px",
-                height: "50px",
-                borderRadius: "50px",
-                fontWeight: 700,
-                fontSize: "16px",
                 border: "1px solid black",
               }}
             />
@@ -66,8 +62,13 @@ const Home = () => {
         <div className="main-container w-full max-w-[1380px] m-auto  grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 p-6 md:p-4 lg:p-2 items-center   ">
           {/* left side */}
           <div className="text-container w-full max-w-[586px] sm:m-auto md:m-auto lg:m-0  ">
-            <p className="text-[#9FCB09] text-[18px] font-medium">FAST & RELIABLE LEARING SOLUTIONS</p>
-            <h1 className="text-[40px] font-bold mt-[20px]">Need Driving Lessons? <br />We Can Help!</h1>
+            <p className="text-[#9FCB09] text-[18px] font-medium">
+              FAST & RELIABLE LEARING SOLUTIONS
+            </p>
+            <h1 className="text-[40px] font-bold mt-[20px]">
+              Need Driving Lessons? <br />
+              We Can Help!
+            </h1>
             <p className="text-[16px] text-[#4D4D4D] leading-[27px]">
               <br />
               <span>
@@ -79,14 +80,16 @@ const Home = () => {
               </span>
               <br />
               <br />
-              
+
               <span>
                 Whether you’re preparing for your driving test or want to
                 enhance your skills for daily commuting, our vetted instructors
                 provide expert guidance to help you succeed confidently and
                 safely.
               </span>
-              <br /><br /><br />
+              <br />
+              <br />
+              <br />
               <span>
                 We also provide detailed tracking of your completed lessons,
                 upcoming sessions, and payment status — so you always know where
@@ -95,47 +98,104 @@ const Home = () => {
                 today.
               </span>
             </p>
-            <div className="btns flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start mt-[60px]">
-            <Button
-              text={"Chat with an Instructor"}
-              style={{
-                background: "#9FCB09",
-                width: "252px",
-                height: "50px",
-                borderRadius: "50px",
-                fontWeight: 700,
-                fontSize: "16px",
-              }}
-            />
-            <Button
-              text={"Book a Lesson"}
-              style={{
-                width: "252px",
-                height: "50px",
-                borderRadius: "50px",
-                fontWeight: 700,
-                fontSize: "16px",
-                border: "1px solid black",
-              }}
-            />
-          </div>
+            <div className="btns flex flex-row sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start mt-[60px]">
+              <Button
+                text={"Chat with an Instructor"}
+                style={{
+                  background: "#9FCB09",
+                }}
+              />
+              <Button
+                text={"Book a Lesson"}
+                style={{
+                  border: "1px solid black",
+                }}
+              />
+            </div>
           </div>
 
           {/* Right side */}
           <div className="img-container w-full max-w-[611px] h-[833px] relative sm:m-auto md:m-auto ">
-           <div className="img-1 w-full max-w-[80%]  h-[400px] md:h-[500px] lg:h-[573px] relative">
-            <img src={sectionimg1} alt="" className="rounded-[40px] object-cover h-full w-full absolute top-0 left-[25%]  z-10"/>
-           </div>
-           <div className="vector-img absolute  max-w-[70%] top-[23%] left-[30%]  ">
-            <img src={sectionvector} alt="" className=" md:h-[400px] lg:h-[500px]"/>
-           </div>
-           <div className="img-2 w-full max-w-[70%] h-[360px] md:h-[400px] lg:h-[456px] rounded-[40px] relative" >
-            <img src={sectionimg2} alt="" className=" border-[16px] border-[#9FCB09] rounded-[40px] object-cover w-full h-full absolute bottom-[45%] z-20"/>
-           </div>
+            <div className="img-1 w-full max-w-[80%]  h-[400px] md:h-[500px] lg:h-[573px] relative">
+              <img
+                src={sectionimg1}
+                alt=""
+                className="rounded-[40px] object-cover h-full w-full absolute top-0 left-[25%]  z-10"
+              />
+            </div>
+            <div className="vector-img absolute  max-w-[70%] top-[23%] left-[30%]  ">
+              <img
+                src={sectionvector}
+                alt=""
+                className=" md:h-[400px] lg:h-[500px]"
+              />
+            </div>
+            <div className="img-2 w-full max-w-[70%] h-[360px] md:h-[400px] lg:h-[456px] rounded-[40px] relative">
+              <img
+                src={sectionimg2}
+                alt=""
+                className=" border-[16px] border-[#9FCB09] rounded-[40px] object-cover w-full h-full absolute bottom-[45%] z-20"
+              />
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Feature Section */}
+      <div className="w-full  bg-[#F6F6F6]  p-20">
+        <FeatureBanner
+          tagLine={"FROM BEGINNER TO CONFIDENT DRIVER"}
+          tilte={"Expert Instructors Who Understand Your Learning Needs"}
+          descriptionTop={
+            "Our certified DVSA instructors are experienced in teaching learners of all levels, whether it’s your first lesson or preparing for the driving test. They provide personalized guidance to ensure you gain confidence, skills, and safe driving habits."
+          }
+          descriptionBottom={
+            "We connect you with instructors for all vehicle types, including manual, automatic, and specialized training vehicles, ensuring every lesson meets your individual requirements"
+          }
+        />
+      </div>
+
+      {/* Lesson-Booking section */}
+      <div className="w-full min-h-[814px] p-20 ">
+        <div className="w-full max-w-[1280px]  mx-auto flex flex-col gap-16">
+          {/* text */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+          <div>
+            <p className="font-normal text-[#9FCB09] text-[14px] md:text-[18px] lg:text-[18px]">Why Choose Our Platform</p>
+            <h1 className="font-bold text-[36px] md:text-[40px] lg:text-[40px]">Smart, safe, and seamless driving-lesson booking</h1>
+          </div>
+          <div>
+            <p className="font-normal max-w-[580px] text-[#4D4D4D] text-[14px] md:text-[16px] lg:text-[16px] leading-[27px] ">
+              We make learning to drive simple, transparent, and stress-free.
+              Pupils can easily find verified instructors, compare prices, and
+              book lessons in minutes. Instructors get powerful tools to manage
+              availability, earnings, and bookings effortlessly. <br /> A platform
+              built for trust, convenience, and real results.
+            </p>
+          </div>
+        </div>
+
+        {/* cards */}
+        <div className="w-full min-h-[371px] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div>
+            <Card logo={cardLogo1} text={"Instantly see which instructors are available and book lessons without waiting. Our live updates reduce cancellations and scheduling conflicts, giving you peace of mind."}/>
+          </div>
+          <div>
+          <Card logo={cardLogo2} text={"Know the cost upfront—no hidden fees. Compare rates, view hourly charges, and receive accurate quotes before confirming your lesson."}/>
+          </div>
+          <div>
+            <Card logo={cardLogo3} text={"All instructors are DVSA-approved and vetted for quality. Learn confidently knowing you’re in the hands of experienced professionals."}/>
+          </div>
+        </div>
+
+        {/* Buttons */}
+        <div className="w-full max-w-[700px] mx-auto flex items-center justify-center gap-8 ">
+          <Button text={"Please Quote to Pupil"} style={{background:"#9FCB09",}}/>
+          <Button text={"Manual Booking"} style={{border:"1px solid black", }}/>
+        </div>
+
+        </div>
+      </div>
     </>
   );
 };
