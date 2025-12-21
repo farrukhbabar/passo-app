@@ -34,7 +34,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="w-full min-h-[400px] pl-6 pr-6 pt-6 pb-4 md:pt-20 md:pr-20 md:pl-20 md:pb-8 ">
-        <div className="w-full max-w-[1350px] min-h-[296px] mx-auto ">
+        <div className="w-full max-w-[1380px] min-h-[296px] mx-auto ">
 
           <div className="w-full min-h-[252px] border-b-[1px] border-[#E6E6E6]">
             <div className=" w-full min-h-[192px] flex flex-col md:flex-row justify-between gap-4 md:gap-10 lg:gap-6">

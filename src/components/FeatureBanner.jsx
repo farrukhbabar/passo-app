@@ -11,7 +11,7 @@ const FeatureBanner = ({
   return (
     <>
       <div
-        className="w-full max-w-[1280px] px-4 md:px-10 py-4 md:py-6 min-h-[496px] bg-cover bg-center  mx-auto flex items-center justify-center rounded-[40px]"
+        className="w-full max-w-[1380px] px-4 md:px-10 py-4 md:py-6 min-h-[496px] bg-cover bg-center  mx-auto flex items-center justify-center rounded-[40px]"
         style={{
           backgroundImage: `url(${FeatureBannerimg})`,
         }}

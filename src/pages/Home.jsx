@@ -158,7 +158,7 @@ const Home = () => {
 
       {/* Lesson-Booking section */}
       <div className="w-full min-h-[814px] p-10 md:p-20 ">
-        <div className="w-full max-w-[1280px]  mx-auto flex flex-col gap-16">
+        <div className="w-full max-w-[1380px]  mx-auto flex flex-col gap-16">
           {/* text */}
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           <div>
@@ -200,11 +200,14 @@ const Home = () => {
 
       {/* FAQ section */}
       <div className="w-full min-h-[792px] bg-[#222222] p-10 md:p-20 ">
+       <div className="w-full max-w-[1380px] mx-auto">
+         {/* FAQ top */}
         <div className="w-full max-w-[1000px] min-h-[79px] mx-auto  text-center pt-2 md:pt-4">
           <h1 className="font-bold text-[#FFFFFF] text-[36px] md:text-[40px] ">Frequently Asked Question</h1>
           <p className="font-normal text-[#B4B4B4] text-[14px] md:text-[16px] mt-4 md:mt-5">Check out these FAQs for helpful information about our tyre repair services and what to do when you have a tyre issue.</p>
         </div>
 
+        {/* FAQ bottom */}
         <div className=" min-h-[517px] flex flex-col justify-around ">
 
           <FAQItem question={"How do I book a lesson?"} answer={"Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."} />
@@ -217,6 +220,7 @@ const Home = () => {
 
         </div>
 
+       </div>
       </div>
     </>
   );
