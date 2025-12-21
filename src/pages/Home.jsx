@@ -10,6 +10,7 @@ import Card from "../components/Card";
 import cardLogo1 from "../assets/cardLogo1.png"
 import cardLogo2 from "../assets/cardLogo2.png"
 import cardLogo3 from "../assets/cardLogo3.png"
+import FAQItem from "../components/FAQItem";
 
 
 const Home = () => {
@@ -142,7 +143,7 @@ const Home = () => {
       </div>
 
       {/* Feature Section */}
-      <div className="w-full  bg-[#F6F6F6]  p-20">
+      <div className="w-full  bg-[#F6F6F6]  p-5 md:p-20">
         <FeatureBanner
           tagLine={"FROM BEGINNER TO CONFIDENT DRIVER"}
           tilte={"Expert Instructors Who Understand Your Learning Needs"}
@@ -156,7 +157,7 @@ const Home = () => {
       </div>
 
       {/* Lesson-Booking section */}
-      <div className="w-full min-h-[814px] p-20 ">
+      <div className="w-full min-h-[814px] p-10 md:p-20 ">
         <div className="w-full max-w-[1280px]  mx-auto flex flex-col gap-16">
           {/* text */}
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
@@ -189,12 +190,33 @@ const Home = () => {
         </div>
 
         {/* Buttons */}
-        <div className="w-full max-w-[700px] mx-auto flex items-center justify-center gap-8 ">
+        <div className="w-full max-w-[700px] mx-auto flex flex-col md:flex-row items-center justify-center gap-8 ">
           <Button text={"Please Quote to Pupil"} style={{background:"#9FCB09",}}/>
           <Button text={"Manual Booking"} style={{border:"1px solid black", }}/>
         </div>
 
         </div>
+      </div>
+
+      {/* FAQ section */}
+      <div className="w-full min-h-[792px] bg-[#222222] p-10 md:p-20 ">
+        <div className="w-full max-w-[1000px] min-h-[79px] mx-auto  text-center pt-2 md:pt-4">
+          <h1 className="font-bold text-[#FFFFFF] text-[36px] md:text-[40px] ">Frequently Asked Question</h1>
+          <p className="font-normal text-[#B4B4B4] text-[14px] md:text-[16px] mt-4 md:mt-5">Check out these FAQs for helpful information about our tyre repair services and what to do when you have a tyre issue.</p>
+        </div>
+
+        <div className=" min-h-[517px] flex flex-col justify-around ">
+
+          <FAQItem question={"How do I book a lesson?"} answer={"Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."} />
+
+          <FAQItem question={"How do I book a lesson?"} answer={"Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."} />
+
+          <FAQItem question={"How do I book a lesson?"} answer={"Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."} />
+
+          <FAQItem question={"How do I book a lesson?"} answer={"Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."} />
+
+        </div>
+
       </div>
     </>
   );
