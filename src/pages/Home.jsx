@@ -2,16 +2,13 @@ import React from "react";
 import "./Home.css";
 import landingimg from "../assets/landingimg.png";
 import Button from "../components/button";
-import sectionimg1 from "../assets/sectionimg1.png";
-import sectionimg2 from "../assets/sectionimg2.png";
-import sectionvector from "../assets/sectionvector.png";
+import homeimg from "../assets/homeimg.png";
 import FeatureBanner from "../components/FeatureBanner";
 import Card from "../components/Card";
-import cardLogo1 from "../assets/cardLogo1.png"
-import cardLogo2 from "../assets/cardLogo2.png"
-import cardLogo3 from "../assets/cardLogo3.png"
+import cardLogo1 from "../assets/cardLogo1.png";
+import cardLogo2 from "../assets/cardLogo2.png";
+import cardLogo3 from "../assets/cardLogo3.png";
 import FAQItem from "../components/FAQItem";
-
 
 const Home = () => {
   return (
@@ -59,7 +56,7 @@ const Home = () => {
       </div>
 
       {/* main section */}
-      <div className="main-section w-full min-h-screen bg-[#FFFFFF] flex items-center justify-center py-5 md:py-20">
+      <div className="main-section w-full min-h-screen bg-[#FFFFFF] flex items-center justify-center p-5 md:p-20">
         <div className="main-container w-full max-w-[1380px] m-auto  grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 p-6 md:p-4 lg:p-2 items-center   ">
           {/* left side */}
           <div className="text-container w-full max-w-[586px] sm:m-auto md:m-auto lg:m-0  ">
@@ -116,28 +113,12 @@ const Home = () => {
           </div>
 
           {/* Right side */}
-          <div className="img-container w-full max-w-[611px] h-[833px] relative sm:m-auto md:m-auto ">
-            <div className="img-1 w-full max-w-[80%]  h-[400px] md:h-[500px] lg:h-[573px] relative">
-              <img
-                src={sectionimg1}
-                alt=""
-                className="rounded-[40px] object-cover h-full w-full absolute top-0 left-[25%]  z-10"
-              />
-            </div>
-            <div className="vector-img absolute  max-w-[70%] top-[23%] left-[30%]  ">
-              <img
-                src={sectionvector}
-                alt=""
-                className=" md:h-[400px] lg:h-[500px]"
-              />
-            </div>
-            <div className="img-2 w-full max-w-[70%] h-[360px] md:h-[400px] lg:h-[456px] rounded-[40px] relative">
-              <img
-                src={sectionimg2}
-                alt=""
-                className=" border-[16px] border-[#9FCB09] rounded-[40px] object-cover w-full h-full absolute bottom-[45%] z-20"
-              />
-            </div>
+          <div className=" w-full max-w-[611px] mx-auto ">
+            <img
+              src={homeimg}
+              alt=""
+              className=" h-[600px] md:h-[790px] lg:h-[833px] object-contain w-full "
+            />
           </div>
         </div>
       </div>
@@ -161,66 +142,112 @@ const Home = () => {
         <div className="w-full max-w-[1380px]  mx-auto flex flex-col gap-16">
           {/* text */}
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-          <div>
-            <p className="font-normal text-[#9FCB09] text-[14px] md:text-[18px] lg:text-[18px]">Why Choose Our Platform</p>
-            <h1 className="font-bold text-[36px] md:text-[40px] lg:text-[40px]">Smart, safe, and seamless driving-lesson booking</h1>
+            <div>
+              <p className="font-normal text-[#9FCB09] text-[14px] md:text-[18px] lg:text-[18px]">
+                Why Choose Our Platform
+              </p>
+              <h1 className="font-bold text-[36px] md:text-[40px] lg:text-[40px]">
+                Smart, safe, and seamless driving-lesson booking
+              </h1>
+            </div>
+            <div>
+              <p className="font-normal max-w-[580px] text-[#4D4D4D] text-[14px] md:text-[16px] lg:text-[16px] leading-[27px] ">
+                We make learning to drive simple, transparent, and stress-free.
+                Pupils can easily find verified instructors, compare prices, and
+                book lessons in minutes. Instructors get powerful tools to
+                manage availability, earnings, and bookings effortlessly. <br />{" "}
+                A platform built for trust, convenience, and real results.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="font-normal max-w-[580px] text-[#4D4D4D] text-[14px] md:text-[16px] lg:text-[16px] leading-[27px] ">
-              We make learning to drive simple, transparent, and stress-free.
-              Pupils can easily find verified instructors, compare prices, and
-              book lessons in minutes. Instructors get powerful tools to manage
-              availability, earnings, and bookings effortlessly. <br /> A platform
-              built for trust, convenience, and real results.
-            </p>
-          </div>
-        </div>
 
-        {/* cards */}
-        <div className="w-full min-h-[371px] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div>
-            <Card logo={cardLogo1} text={"Instantly see which instructors are available and book lessons without waiting. Our live updates reduce cancellations and scheduling conflicts, giving you peace of mind."}/>
+          {/* cards */}
+          <div className="w-full min-h-[371px] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div>
+              <Card
+                logo={cardLogo1}
+                text={
+                  "Instantly see which instructors are available and book lessons without waiting. Our live updates reduce cancellations and scheduling conflicts, giving you peace of mind."
+                }
+              />
+            </div>
+            <div>
+              <Card
+                logo={cardLogo2}
+                text={
+                  "Know the cost upfront—no hidden fees. Compare rates, view hourly charges, and receive accurate quotes before confirming your lesson."
+                }
+              />
+            </div>
+            <div>
+              <Card
+                logo={cardLogo3}
+                text={
+                  "All instructors are DVSA-approved and vetted for quality. Learn confidently knowing you’re in the hands of experienced professionals."
+                }
+              />
+            </div>
           </div>
-          <div>
-          <Card logo={cardLogo2} text={"Know the cost upfront—no hidden fees. Compare rates, view hourly charges, and receive accurate quotes before confirming your lesson."}/>
-          </div>
-          <div>
-            <Card logo={cardLogo3} text={"All instructors are DVSA-approved and vetted for quality. Learn confidently knowing you’re in the hands of experienced professionals."}/>
-          </div>
-        </div>
 
-        {/* Buttons */}
-        <div className="w-full max-w-[700px] mx-auto flex flex-col md:flex-row items-center justify-center gap-8 ">
-          <Button text={"Please Quote to Pupil"} style={{background:"#9FCB09",}}/>
-          <Button text={"Manual Booking"} style={{border:"1px solid black", }}/>
-        </div>
-
+          {/* Buttons */}
+          <div className="w-full max-w-[700px] mx-auto flex flex-col md:flex-row items-center justify-center gap-8 ">
+            <Button
+              text={"Please Quote to Pupil"}
+              style={{ background: "#9FCB09" }}
+            />
+            <Button
+              text={"Manual Booking"}
+              style={{ border: "1px solid black" }}
+            />
+          </div>
         </div>
       </div>
 
       {/* FAQ section */}
       <div className="w-full min-h-[792px] bg-[#222222] p-10 md:p-20 ">
-       <div className="w-full max-w-[1380px] mx-auto">
-         {/* FAQ top */}
-        <div className="w-full max-w-[1000px] min-h-[79px] mx-auto  text-center pt-2 md:pt-4">
-          <h1 className="font-bold text-[#FFFFFF] text-[36px] md:text-[40px] ">Frequently Asked Question</h1>
-          <p className="font-normal text-[#B4B4B4] text-[14px] md:text-[16px] mt-4 md:mt-5">Check out these FAQs for helpful information about our tyre repair services and what to do when you have a tyre issue.</p>
+        <div className="w-full max-w-[1380px] mx-auto">
+          {/* FAQ top */}
+          <div className="w-full max-w-[1000px] min-h-[79px] mx-auto  text-center pt-2 md:pt-4">
+            <h1 className="font-bold text-[#FFFFFF] text-[36px] md:text-[40px] ">
+              Frequently Asked Question
+            </h1>
+            <p className="font-normal text-[#B4B4B4] text-[14px] md:text-[16px] mt-4 md:mt-5">
+              Check out these FAQs for helpful information about our tyre repair
+              services and what to do when you have a tyre issue.
+            </p>
+          </div>
+
+          {/* FAQ bottom */}
+          <div className=" min-h-[517px] flex flex-col justify-around ">
+            <FAQItem
+              question={"How do I book a lesson?"}
+              answer={
+                "Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."
+              }
+            />
+
+            <FAQItem
+              question={"Are the instructors verified?"}
+              answer={
+                "Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."
+              }
+            />
+
+            <FAQItem
+              question={"Can I see instructor availability in real-time?"}
+              answer={
+                "Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."
+              }
+            />
+
+            <FAQItem
+              question={"How is payment handled?"}
+              answer={
+                "Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."
+              }
+            />
+          </div>
         </div>
-
-        {/* FAQ bottom */}
-        <div className=" min-h-[517px] flex flex-col justify-around ">
-
-          <FAQItem question={"How do I book a lesson?"} answer={"Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."} />
-
-          <FAQItem question={"How do I book a lesson?"} answer={"Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."} />
-
-          <FAQItem question={"How do I book a lesson?"} answer={"Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."} />
-
-          <FAQItem question={"How do I book a lesson?"} answer={"Booking a lesson is simple and convenient. You can search for instructors based on location, availability, and ratings, then compare prices and experience. Once you choose, confirm your lesson instantly and receive real-time reminders for a smooth learning experience."} />
-
-        </div>
-
-       </div>
       </div>
     </>
   );

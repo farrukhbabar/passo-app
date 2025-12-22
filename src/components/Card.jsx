@@ -11,7 +11,7 @@ const Card = ({ logo, text }) => {
           <img
             src={logo}
             alt=""
-            className="w-20 h-16 sm:w-24 sm:h-20 md:w-[93px] md:h-[72px]"
+            className="w-20 h-16 sm:w-24 sm:h-20 md:w-[93px] md:h-[72px] border-none"
           />
         </div>
         <div className="font-normal text-[#4D4D4D] text-[16px] leading-[27px] mt-[30px]">

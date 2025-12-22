@@ -1,5 +1,5 @@
 import React from "react";
-import Footerimg from "../assets/Footerimg.png";
+import footerimg from "../assets/footerimg.png";
 import Button from "./button";
 import logo from "../assets/footerLogo.png";
 import { NavLink } from "react-router-dom";
@@ -12,7 +12,15 @@ const Footer = () => {
     {/* Footer Top */}
       <div
         className="w-full min-h-[362px] p-10 md:p-20 flex flex-col items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${Footerimg})` }}
+        style={{ 
+            backgroundImage: `
+      linear-gradient(
+        rgba(159, 203, 9, 0.95),
+        rgba(159, 203, 9, 0.95)
+      ),
+      url(${footerimg})
+    `,
+       }}
       >
         <div className="w-full max-w-[840px] min-h-[190px] flex flex-col items-center justify-between">
           <h1 className="font-bold text-[36px] md:text-[40px] lg:text-[40px] text-center">
