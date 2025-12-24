@@ -4,23 +4,23 @@ import Button from "./button";
 import logo from "../assets/footerLogo.png";
 import { NavLink } from "react-router-dom";
 import emailLogo from "../assets/mail.png";
-import phoneLogo from "../assets/phone-telephone.png"
+import phoneLogo from "../assets/phone-telephone.png";
 
 const Footer = () => {
   return (
     <>
-    {/* Footer Top */}
+      {/* Footer Top */}
       <div
         className="w-full min-h-[362px] p-10 md:p-20 flex flex-col items-center justify-center bg-cover bg-center"
-        style={{ 
-            backgroundImage: `
+        style={{
+          backgroundImage: `
       linear-gradient(
         rgba(159, 203, 9, 0.95),
         rgba(159, 203, 9, 0.95)
       ),
       url(${footerimg})
     `,
-       }}
+        }}
       >
         <div className="w-full max-w-[840px] min-h-[190px] flex flex-col items-center justify-between">
           <h1 className="font-bold text-[36px] md:text-[40px] lg:text-[40px] text-center">
@@ -43,47 +43,73 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="w-full min-h-[400px] pl-6 pr-6 pt-6 pb-4 md:pt-20 md:pr-20 md:pl-20 md:pb-8 ">
         <div className="w-full max-w-[1380px] min-h-[296px] mx-auto ">
-
           <div className="w-full min-h-[252px] border-b-[1px] border-[#E6E6E6]">
             <div className=" w-full min-h-[192px] flex flex-col md:flex-row justify-between gap-4 md:gap-10 lg:gap-6">
-            {/* logo section */}
-            <div className="min-h-[192px] w-full max-w-[335px]  mx-auto md:mx-0">
-              <img src={logo} alt="" className=" w-[300px] md:w-[325px] h-[70px] md:h-[80px]"/>
-              <p className="font-normal text-[14px] md:text-[16px] mt-6 md:mt-8">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti ad eveniet dolorum, officiis laboriosam odio.
-              </p>
-            </div>
+              {/* logo section */}
+              <div className="min-h-[192px] w-full max-w-[335px]  mx-auto md:mx-0">
+                <img
+                  src={logo}
+                  alt=""
+                  className=" w-[280px] md:w-[300px] lg:w-[325px] h-[70px] md:h-[80px]"
+                />
+                <p className="font-normal text-[14px] md:text-[16px] mt-6 md:mt-8">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Deleniti ad eveniet dolorum, officiis laboriosam odio.
+                </p>
+              </div>
 
-            {/* Links */}
-           <div className="w-full max-w-[700px] flex justify-around md:justify-between gap-4 md:gap-6 pl-1 md:pl-4 lg:pl-8 ml-1 md:ml-4 lg:ml-8">
-             {/* Quick Links */}
-              <div className=" w-full max-w-[150px] min-h-[24px]">
-              <ul className="flex flex-col gap-1 md:gap-2">
-                <li className="font-semibold text-[20px] md:text-[22px]">Quick Links</li>
-                <li className="font-normal text-[14px] md:text-[16px]">
-                  <NavLink to="/">Home</NavLink>
-                </li>
-                <li className="font-normal text-[14px] md:text-[16px]">
-                  <NavLink to="/about">How it works</NavLink>
-                </li>
-                <li className="font-normal text-[14px] md:text-[16px]">
-                  <NavLink to="/contact">Contact us</NavLink>
-                </li>
-              </ul>
+              {/* Links */}
+              <div className="w-full max-w-[700px] flex justify-around md:justify-between gap-4 md:gap-6 pl-1 md:pl-4 lg:pl-8 ml-1 md:ml-4 lg:ml-8">
+                {/* Quick Links */}
+                <div className=" w-full max-w-[150px] min-h-[24px]">
+                  <ul className="flex flex-col gap-2 md:gap-3">
+                    <li className="font-semibold text-[20px] md:text-[22px] whitespace-nowrap">
+                      Quick Links
+                    </li>
+                    <li className="font-normal text-[14px] md:text-[16px]">
+                      <NavLink to="/">Home</NavLink>
+                    </li>
+                    <li className="font-normal text-[14px] md:text-[16px] whitespace-nowrap">
+                      <NavLink to="/about">How it works</NavLink>
+                    </li>
+                    <li className="font-normal text-[14px] md:text-[16px] whitespace-nowrap">
+                      <NavLink to="/contact">Contact us</NavLink>
+                    </li>
+                  </ul>
+                </div>
+                {/* Contacts */}
+                <div className=" w-full max-w-[170px]">
+                  <ul className="flex flex-col gap-2 md:gap-3">
+                    <li className="font-semibold text-[20px] md:text-[22px]">
+                      Contact
+                    </li>
+                    <li className="font-normal text-[14px] md:text-[16px]">
+                      Download app
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <img
+                        src={emailLogo}
+                        alt="Email"
+                        className="w-[17px] h-[13px] flex-shrink-0"
+                      />
+                      <span className="font-normal text-[14px] md:text-[16px]">
+                        Info@gmail.com
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <img
+                        src={phoneLogo}
+                        alt=""
+                        className="w-[20px] h-[20px] flex-shrink-0"
+                      />
+                      <span className="font-normal text-[14px] md:text-[16px]">
+                        000 0000000
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            {/* Contacts */}
-            <div className=" w-full max-w-[150px] md:max-w-[170px] lg:max-w-[150px]">
-              <ul className="flex flex-col gap-1 md:gap-2">
-                <li className="font-semibold text-[20px] md:text-[22px]">Contact</li>
-                <li className="font-normal text-[14px] md:text-[16px]">Download app</li>
-                <li><img src={emailLogo} alt="" className="w-[17px] h-[13px] inline mr-1" /> <span className="font-normal text-[14px] md:text-[16px]">Info@gmail.com</span></li>
-                <li><img src={phoneLogo} alt="" className="w-[20px] h-[20px] inline mr-1" /> <span className="font-normal text-[14px] md:text-[16px]">000 0000000</span></li>
-              </ul>
-            </div>
-           </div>
-
-          </div>
           </div>
 
           <div className="text-center mt-4 md:mt-6 font-normal text-[14px] md:text-[16px] ">
