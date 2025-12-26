@@ -59,7 +59,7 @@ const About = () => {
             </ul>
             <div className="btns flex flex-row sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start mt-[70px] md:mt-[70px] lg:mt-[100px]">
               <Button
-                text={"Chat with an Instructor"}
+                text={"Chat with Instructor"}
                 style={{
                   background: "#9FCB09",
                 }}
