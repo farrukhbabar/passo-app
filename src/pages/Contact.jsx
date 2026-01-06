@@ -1,12 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios"
 import contactBanner from "../assets/contactBanner.png";
 import contactIcon from "../assets/contactIcon.png";
 import emailIcon from "../assets/emailIcon.png";
 
+
 const Contact = () => {
+
+    const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+    const [responseMsg, setResponseMsg] = useState("");
+  const [error, setError] = useState(false);
+
+   const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:5000/api/contact", form);
+
+      setResponseMsg(res.data.message);
+      setError(false);
+      setForm({ name: "", email: "", phone: "", message: "" });
+       setTimeout(() => setResponseMsg(""), 3000);
+
+    } catch (err) {
+      setResponseMsg(err.response?.data?.message || "Something went wrong");
+      setError(true);
+       setTimeout(() => setResponseMsg(""), 3000);
+    }
+  };
+
   return (
     <>
-      {/* Contac banner */}
+      {/* Contact banner */}
       <div
         className="w-full min-h-[351px] bg-center bg-cover flex flex-col justify-center p-10 md:p-20"
         style={{
@@ -21,45 +55,54 @@ const Contact = () => {
         </h1>
       </div>
 
-      {/* From section */}
+      {/* Form section */}
       <div className="w-full min-h-[709px] grid grid-cols-1 md:gris-cols-1 lg:grid-cols-2 gap-6 p-10 md:p-20">
         {/* left side */}
         <div className="w-full max-w-[659px] min-h-[552px] mx-auto">
           <h1 className="font-bold text-[30px] md:text-[35px] lg:text-[40px] pb-4 md:pb-6">
             Contact Form
           </h1>
-          <form action="submit" className="flex flex-col gap-4 md:gap-6">
+          <form action="submit" onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6">
             <input
               type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
               placeholder="Name*"
-              required
-              pattern="[A-Za-z\s]+"
+              // required
+              // pattern="[A-Za-z\s]+"
               className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
             />
             <input
               type="tel"
-              name=""
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
               id=""
               placeholder="Phone*"
-              required
-              pattern="^\+?[0-9\s\-]{7,15}$"
+              // required
+              // pattern="^\+?[0-9\s\-]{7,15}$"
               className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
             />
             <input
               type="email"
-              name=""
+              name="email"
+              value={form.email}
+              onChange={handleChange}
               id=""
               placeholder="Email*"
-              required
+              // required
               className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
             />
             <textarea
-              name=""
+              name="message"
+              value={form.message}
+              onChange={handleChange}
               id=""
               rows="6"
               color="50"
               placeholder="Message(Please include your vehicle's make and model,tyre size, or any other relevant details.)*"
-              required
+              // required
               className="w-full max-w-[586px] min-h-[200px] rounded-[20px] bg-[#F6F6F6] pl-4 pt-4 resize-none outline-none"
             ></textarea>
             <div>
@@ -69,6 +112,11 @@ const Contact = () => {
               >
                 Submit
               </button>
+
+              {/* response message */}
+              <div className="mt-2 h-5  ">
+                {responseMsg && (  <p style={{ color: error ? "red" : "black" }}>{responseMsg}</p>)}
+              </div>
             </div>
           </form>
         </div>
