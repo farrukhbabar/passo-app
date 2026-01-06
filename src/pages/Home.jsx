@@ -64,7 +64,7 @@ const Home = () => {
               FAST & RELIABLE LEARING SOLUTIONS
             </p>
             <h1 className="text-[40px] font-bold mt-[20px]">
-              Need Driving Lessons? <br />
+              Need Driving Lessons? <br /> 
               We Can Help!
             </h1>
             <p className="text-[16px] text-[#4D4D4D] leading-[27px]">

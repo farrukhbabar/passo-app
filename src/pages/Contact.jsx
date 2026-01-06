@@ -1,40 +1,46 @@
 import React, { useState } from "react";
-import axios from "axios"
+import axios from "axios";
 import contactBanner from "../assets/contactBanner.png";
 import contactIcon from "../assets/contactIcon.png";
 import emailIcon from "../assets/emailIcon.png";
 
-
 const Contact = () => {
-
-    const [form, setForm] = useState({
+  const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
   });
 
-    const [responseMsg, setResponseMsg] = useState("");
-  const [error, setError] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [successMsg, setSuccessMsg] = useState("");
 
-   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };  
+  const handleChange = (e) => {
+
+    const { name, value } = e.target;
+
+    setForm({ ...form, [name]: value });
+
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: "" });
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors({});
+    setSuccessMsg("");
     try {
       const res = await axios.post("http://localhost:5000/api/contact", form);
 
-      setResponseMsg(res.data.message);
-      setError(false);
+      setSuccessMsg(res.data.message);
       setForm({ name: "", email: "", phone: "", message: "" });
-       setTimeout(() => setResponseMsg(""), 3000);
-
+      setTimeout(() => setSuccessMsg(""), 2000);
     } catch (err) {
-      setResponseMsg(err.response?.data?.message || "Something went wrong");
-      setError(true);
-       setTimeout(() => setResponseMsg(""), 3000);
+      if (err.response?.data?.errors) {
+        setErrors(err.response.data.errors);
+      }
+      // setTimeout(() => setSuccessMsg(""), 3000);
     }
   };
 
@@ -56,73 +62,128 @@ const Contact = () => {
       </div>
 
       {/* Form section */}
-      <div className="w-full min-h-[709px] grid grid-cols-1 md:gris-cols-1 lg:grid-cols-2 gap-6 p-10 md:p-20">
+      <div className="w-full min-h-[709px] grid grid-cols-1 md:gris-cols-1 lg:grid-cols-2 gap-6 p-10 md:p-20 ">
         {/* left side */}
-        <div className="w-full max-w-[659px] min-h-[552px] mx-auto">
+        <div className="w-full max-w-[659px] min-h-[552px] mx-auto ">
           <h1 className="font-bold text-[30px] md:text-[35px] lg:text-[40px] pb-4 md:pb-6">
             Contact Form
           </h1>
-          <form action="submit" onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6">
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Name*"
-              // required
-              // pattern="[A-Za-z\s]+"
-              className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
-            />
-            <input
-              type="tel"
-              name="phone"
-              value={form.phone}
-              onChange={handleChange}
-              id=""
-              placeholder="Phone*"
-              // required
-              // pattern="^\+?[0-9\s\-]{7,15}$"
-              className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
-            />
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              id=""
-              placeholder="Email*"
-              // required
-              className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
-            />
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              id=""
-              rows="6"
-              color="50"
-              placeholder="Message(Please include your vehicle's make and model,tyre size, or any other relevant details.)*"
-              // required
-              className="w-full max-w-[586px] min-h-[200px] rounded-[20px] bg-[#F6F6F6] pl-4 pt-4 resize-none outline-none"
-            ></textarea>
+          <form
+            action="submit"
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-3 md:gap-5"
+          >
+            <div>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Name*"
+                className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
+              />
+              {errors.name && (
+                <p className="text-red-400 text-sm mt-1 pl-2">{errors.name}</p>
+              )}
+            </div>
+
+            <div>
+              <input
+                type="tel"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                id=""
+                placeholder="Phone*"
+                className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
+              />
+              {errors.phone && (
+                <p className="text-red-400 text-sm mt-1 pl-2">
+                  {errors.phone}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                id=""
+                placeholder="Email*"
+                className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
+              />
+              {errors.email && (
+                <p className="text-red-400 text-sm mt-1 pl-2">
+                  {errors.email}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                id=""
+                rows="6"
+                color="50"
+                placeholder="Message(Please include your vehicle's make and model,tyre size, or any other relevant details.)*"
+                className="w-full max-w-[586px] min-h-[200px] rounded-[20px] bg-[#F6F6F6] pl-4 pt-4 resize-none outline-none"
+              ></textarea>
+              {errors.message && (
+                <p className="text-red-400 text-sm mt-1 pl-2">
+                  {errors.message}
+                </p>
+              )}
+            </div>
+
             <div>
               <button
                 type="submit"
-                className="w-full max-w-[177px] min-h-[50px] rounded-[50px] pt-[13px] pb-[13px] pl-[35px] pr-[35px] border-none bg-[#9FCB09] text-[black] font-bold text-[16px]"
+                className="w-full max-w-[177px] min-h-[50px] rounded-[50px] pt-[13px] pb-[13px] pl-[35px] pr-[35px] border-none bg-[#9FCB09] hover:bg-[#8AB206] text-[black] font-bold text-[16px]"
               >
                 Submit
               </button>
+            </div>
 
-              {/* response message */}
-              <div className="mt-2 h-5  ">
-                {responseMsg && (  <p style={{ color: error ? "red" : "black" }}>{responseMsg}</p>)}
-              </div>
+            {/* response message */}
+            <div>
+              {successMsg && (
+                <div
+                  className="fixed top-6 right-6 z-50 bg-[#8AB206] hover:bg-[#8AB206] text-white px-6 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out w-[320px] overflow-hidden"
+                >
+                  {/* Content */}
+                  <div className="flex items-center gap-3">
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <p className="text-sm font-medium">{successMsg}</p>
+                  </div>
+
+                  {/* Progress Line */}
+                  <div className="absolute bottom-0 left-0 h-[4px] w-full bg-white/30">
+                    <div className="h-full bg-white animate-progress"></div>
+                  </div>
+                </div>
+              )}
             </div>
           </form>
         </div>
 
         {/* Right side */}
-        <div className="w-full max-w-[520px] min-h-[400px] md:min-h-[573px] rounded-[40px] mx-auto">
+        <div className="w-full max-w-[520px] h-[573px] rounded-[40px] mx-auto">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.014454720956!2d67.06587447545622!3d24.81215167795906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33c56e076722d%3A0x633190a618451f16!2sDolmen%20Mall%20Clifton!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk"
             width="100%"
