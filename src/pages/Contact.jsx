@@ -16,7 +16,6 @@ const Contact = () => {
   const [successMsg, setSuccessMsg] = useState("");
 
   const handleChange = (e) => {
-
     const { name, value } = e.target;
 
     setForm({ ...form, [name]: value });
@@ -35,7 +34,7 @@ const Contact = () => {
 
       setSuccessMsg(res.data.message);
       setForm({ name: "", email: "", phone: "", message: "" });
-      setTimeout(() => setSuccessMsg(""), 2000);
+      setTimeout(() => setSuccessMsg(""), 60000);
     } catch (err) {
       if (err.response?.data?.errors) {
         setErrors(err.response.data.errors);
@@ -59,6 +58,47 @@ const Contact = () => {
         <h1 className="font-bold w-full max-w-[1400px] mx-auto text-[45px] md:text-[55px] lg:text-[64px]">
           Contact us Today
         </h1>
+      </div>
+
+      {/* response message */}
+      <div>
+        {successMsg && (
+          <div className="flex items-start gap-3 bg-[#e7f7e1] text-[#2f5d2f] px-4 py-3 transition-all duration-300 ease-in-out relative">
+            {/* Left Icon */}
+            <div className="flex-shrink-0 w-7 h-7 rounded-[7px] bg-[#9FCB09] flex items-center justify-center">
+              <svg
+                className="w-5 h-5 text-white"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+
+            {/* Message */}
+            <p className="text-sm leading-[25px] tracking-wider pr-6  px-2">
+              <span className="text-[16px]  font-medium tracking-tight">
+                Your form has been successfully submitted.
+              </span>
+              <br />
+              {successMsg}
+            </p>
+
+            {/* Close Button */}
+            <button
+              onClick={() => setSuccessMsg("")}
+              className="absolute top-3 right-3 text-[#2f5d2f] hover:text-red-500 transition"
+            >
+              ✕
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Form section */}
@@ -98,9 +138,7 @@ const Contact = () => {
                 className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
               />
               {errors.phone && (
-                <p className="text-red-400 text-sm mt-1 pl-2">
-                  {errors.phone}
-                </p>
+                <p className="text-red-400 text-sm mt-1 pl-2">{errors.phone}</p>
               )}
             </div>
 
@@ -115,9 +153,7 @@ const Contact = () => {
                 className="w-full max-w-[586px] min-h-[50px] rounded-[30px] bg-[#F6F6F6] pl-4 outline-none"
               />
               {errors.email && (
-                <p className="text-red-400 text-sm mt-1 pl-2">
-                  {errors.email}
-                </p>
+                <p className="text-red-400 text-sm mt-1 pl-2">{errors.email}</p>
               )}
             </div>
 
@@ -146,38 +182,6 @@ const Contact = () => {
               >
                 Submit
               </button>
-            </div>
-
-            {/* response message */}
-            <div>
-              {successMsg && (
-                <div
-                  className="fixed top-6 right-6 z-50 bg-[#8AB206] hover:bg-[#8AB206] text-white px-6 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out w-[320px] overflow-hidden"
-                >
-                  {/* Content */}
-                  <div className="flex items-center gap-3">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <p className="text-sm font-medium">{successMsg}</p>
-                  </div>
-
-                  {/* Progress Line */}
-                  <div className="absolute bottom-0 left-0 h-[4px] w-full bg-white/30">
-                    <div className="h-full bg-white animate-progress"></div>
-                  </div>
-                </div>
-              )}
             </div>
           </form>
         </div>
