@@ -1,5 +1,4 @@
 import React from "react";
-import "./Home.css";
 import landingimg from "../assets/landingimg.png";
 import Button from "../components/button";
 import homeimg from "../assets/homeimg.png";
@@ -15,7 +14,7 @@ const Home = () => {
     <>
       {/* Landing page */}
       <div
-        className="min-h-[600px] lg:h-[700px] w-full bg-center bg-cover flex items-center px-4 sm:px-8"
+        className="min-h-[600px] lg:h-[700px] w-full bg-center bg-cover flex items-center p-5 md:p-20"
         style={{
           backgroundImage: `
       linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,0.7)),
@@ -59,7 +58,7 @@ const Home = () => {
       <div className="main-section w-full min-h-screen bg-[#FFFFFF] flex items-center justify-center p-5 md:p-20">
         <div className="main-container w-full max-w-[1380px] m-auto  grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 p-6 md:p-4 lg:p-2 items-center   ">
           {/* left side */}
-          <div className="text-container w-full max-w-[586px] sm:m-auto md:m-auto lg:m-0  ">
+          <div className="text-container w-full sm:max-w-[500px] md:max-w-[586px] sm:m-auto md:m-auto lg:m-0  ">
             <p className="text-[#9FCB09] text-[18px] font-medium">
               FAST & RELIABLE LEARING SOLUTIONS
             </p>
@@ -125,7 +124,7 @@ const Home = () => {
       </div>
 
       {/* Feature Section */}
-      <div className="w-full  bg-[#F6F6F6]  p-5 md:p-20">
+      <div className="w-full  bg-[#F6F6F6]  p-5 sm:p-8 md:p-20">
         <FeatureBanner
           tagLine={"FROM BEGINNER TO CONFIDENT DRIVER"}
           tilte={"Expert Instructors Who Understand Your Learning Needs"}
@@ -191,7 +190,7 @@ const Home = () => {
           </div>
 
           {/* Buttons */}
-          <div className="w-full max-w-[700px] mx-auto flex flex-col md:flex-row items-center justify-center gap-8 ">
+          <div className="w-full max-w-[700px] mx-auto flex  md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 ">
             <Button
               text={"Please Quote to Pupil"}
               style={{ background: "#9FCB09" }}

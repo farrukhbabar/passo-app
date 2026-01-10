@@ -37,21 +37,21 @@ const About = () => {
           </div>
 
           {/* Left side */}
-          <div className="w-full max-w-[607px] h-[588px] mx-auto">
+          <div className="w-full max-w-[607px] h-[auto] md:h-[588px] mx-auto">
             <p className="font-medium text-[#9FCB09] text-[14px] md:text-[16px] lg:text-[18px]">
               FEATURES AND BENEFITS
             </p>
-            <h1 className="font-bold text-[34px] md:text-[38px] lg:text-[40px] mt-4 md:mt-6 max-w-[400px] md:max-w-[500px]">
+            <h1 className="font-bold text-[34px] sm:text-[36px] md:text-[38px] lg:text-[40px] mt-4 md:mt-6 max-w-[400px] md:max-w-[500px]">
               All the Your Need in One Place
             </h1>
-            <p className="font-normal text-[#4D4D4D] text-[12px] md:text-[16px] mt-4 md:mt-6 max-w-[400px] md:max-w-[500px]">
+            <p className="font-normal text-[#4D4D4D] text-[12px] sm:text-[14px] md:text-[16px] mt-4 md:mt-6 max-w-[400px] md:max-w-[500px]">
               Passo gives instructors and learners everything they need to
               manage driving lessons effortlessly. From real-time booking,
               availability management, and lesson tracking to secure
               payments—everything is designed to save time, reduce hassle, and
               boost productivity.
             </p>
-            <ul className="text-[#4D4D4D] text-[12px] md:text-[16px] list-disc pl-5 mt-4 md:mt-6">
+            <ul className="text-[#4D4D4D] text-[12px] sm:text-[14px] md:text-[16px] list-disc pl-5 mt-4 md:mt-6">
               <li>Real-time instructor availability</li>
               <li>Instant lesson booking and approvals</li>
               <li>Secure payment handling</li>
@@ -76,7 +76,7 @@ const About = () => {
       </div>
 
       {/* Feature section */}
-      <div className="w-full min-h-[616px] bg-[#F6F6F6] p-5 md:p-20">
+      <div className="w-full bg-[#F6F6F6]  p-5 sm:p-8 md:p-20">
         <FeatureBanner
           tagLine={"Trusted & Verified Instructors"}
           tilte={"Learn from Certified Professionals"}

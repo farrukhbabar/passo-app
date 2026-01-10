@@ -4,7 +4,7 @@ const Card = ({ logo, text }) => {
   return (
     <>
       <div
-        className="w-full max-w-[413px] min-h-[auto] md:min-h-[371px] p-8 md:p-[55px]
+        className="w-full  sm:max-w-[500px] md:max-w-[413px] min-h-[auto] md:min-h-[371px] p-8 md:p-[55px]
                rounded-[30px] bg-[#F6F6F6] mx-auto"
       >
         <div>
